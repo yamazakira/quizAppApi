@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('todo_post')
-export class TodoPostEntity {
+export class TodoEntity {
     // Using TYPEORM to define the format of the database table from code, using these @ parameters
 
     @PrimaryGeneratedColumn()
