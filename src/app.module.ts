@@ -3,24 +3,27 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TodoModule } from './todo/todo.module';
+import { TodosModule } from './modules/todos/todos.module';
+
+
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(<string>process.env.POSTGRESS_PORT),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
-      autoLoadEntities: true,
-      synchronize: true, // not usable in production due to loss of data
-    }),
-    TodoModule,
-  ],
+  // imports: [
+  //   ConfigModule.forRoot({ isGlobal: true }),
+  //   TypeOrmModule.forRoot({
+  //     type: 'postgres',
+  //     host: process.env.POSTGRES_HOST,
+  //     port: parseInt(<string>process.env.POSTGRESS_PORT),
+  //     username: process.env.POSTGRES_USER,
+  //     password: process.env.POSTGRES_PASSWORD,
+  //     database: process.env.POSTGRES_DATABASE,
+  //     autoLoadEntities: true,
+  //     synchronize: true, // not usable in production due to loss of data
+  //   }),
+  //   TodoModule,
+  // ],
   controllers: [AppController],
   providers: [AppService],
+  imports: [TodosModule,],
 })
 export class AppModule {}
