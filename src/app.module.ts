@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { TodosModule } from './modules/todos/todos.module';
+import { PrismaModule } from './prisma.module';
 
 
 
@@ -24,6 +23,6 @@ import { TodosModule } from './modules/todos/todos.module';
   // ],
   controllers: [AppController],
   providers: [AppService],
-  imports: [TodosModule,],
+  imports: [TodosModule,PrismaModule],
 })
 export class AppModule {}
