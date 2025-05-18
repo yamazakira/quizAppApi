@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TodosModule } from './modules/todos/todos.module';
-import { PrismaModule } from './prisma.module';
-
-
+import { PrismaModule } from '../prisma/prisma.module';
+import { UserModule } from './modules/user/user.module';
+import { QuizModule } from './modules/quiz/quiz.module';
 
 @Module({
   // imports: [
@@ -23,6 +22,6 @@ import { PrismaModule } from './prisma.module';
   // ],
   controllers: [AppController],
   providers: [AppService],
-  imports: [TodosModule,PrismaModule],
+  imports: [PrismaModule,UserModule, QuizModule],
 })
 export class AppModule {}
