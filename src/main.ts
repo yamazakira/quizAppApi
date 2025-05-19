@@ -12,8 +12,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
-    .setTitle('ToDo List API')
-    .setDescription('Simple To-do list API')
+    .setTitle('Quiz API')
+    .setDescription('Quiz App API')
     .setVersion('1.0')
     .addTag('ToDo')
     .build();
